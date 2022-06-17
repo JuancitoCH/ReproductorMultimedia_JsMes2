@@ -1,0 +1,43 @@
+:root{
+    --text-white:rgb(235, 235, 235);
+}
+
+.videos{
+    display: flex;
+    flex-wrap: wrap;
+}
+.un-video{
+    background-color: rgb(58, 58, 58);
+    width: 14rem;
+    height: 12rem;
+    margin: 10px;
+    text-align: center;
+    border-radius: 3px;
+}
+.un-video p{
+    color: var(--text-white);
+}
+.caratula{
+    position: relative;
+    background-color: rgb(32, 32, 32);
+    height: 70%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.caratula p{
+    position: absolute;
+    bottom: 0%;
+    right: 5px;
+    background-color: black;
+    color: white;
+    padding: 2px;
+}
+.caratula img{
+    width: 100%;
+    opacity: .9;
+}
+.caratula img:hover{
+    opacity: 1;
+    cursor: pointer;
+}
