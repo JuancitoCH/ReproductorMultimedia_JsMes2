@@ -1,4 +1,4 @@
-function Miniatura({id,img='',duration='duration',titulo='TITULO'}){
+function Miniatura({id,tumbnail='',duration='duration',name='TITULO'}){
 
     const miniatura = document.createElement('div')
     const caratula = document.createElement('div')
@@ -10,9 +10,9 @@ function Miniatura({id,img='',duration='duration',titulo='TITULO'}){
     miniatura.classList.add('un-video')
     caratula.classList.add('caratula')
 
-    tituloMiniatura.textContent = titulo
+    tituloMiniatura.textContent = name
     duracion.textContent = duration
-    imagen.src=img
+    imagen.src=tumbnail
 
     caratula.appendChild(imagen)
     caratula.appendChild(duracion)
