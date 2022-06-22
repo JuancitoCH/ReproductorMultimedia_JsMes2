@@ -1,8 +1,21 @@
 :root{
     --text-white:rgb(235, 235, 235);
+    --back-black:rgb(58, 58, 58);
+    --back-black-hover:rgb(49, 49, 49);
 }
 
+.videos::before{
+    content: 'Videos';
+    position: absolute;
+    top: -1.5rem;
+    font-size: 2rem;
+    margin-left: 1rem;
+    font-weight: 600;
+    color: var(--back-black);
+}
 .videos{
+    position: relative;
+    margin-top: 3rem;
     display: flex;
     flex-wrap: wrap;
 }
@@ -13,6 +26,10 @@
     margin: 10px;
     text-align: center;
     border-radius: 3px;
+    cursor: pointer;
+}
+.un-video:hover{
+    background-color: rgb(49, 49, 49);
 }
 .un-video p{
     color: var(--text-white);
@@ -41,3 +58,51 @@
     opacity: 1;
     cursor: pointer;
 }
+
+/* music */
+
+.musics::before{
+    content: 'Music';
+    position: absolute;
+    top: -1.5rem;
+    font-size: 2rem;
+    margin-left: 1rem;
+    font-weight: 600;
+}
+
+.musics{
+    position: relative;
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.song-container{
+    background-color: var(--back-black);
+    width: 14rem;
+    padding-bottom: 3px;
+    margin: 12px;
+    border-radius: 3px;
+    color: var(--text-white);
+    cursor: pointer;
+}
+.cover-container{
+    position: relative;
+    width: 14rem;
+    height: 18rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.cover{
+    height: 100%;
+}
+.song-name{
+    font-size: 1.2rem;
+}
+
+
+
+
+/* music */

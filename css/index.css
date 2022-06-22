@@ -15,4 +15,8 @@
 }
 .header h1{
     margin-left: 3rem;
+    cursor: pointer;
+}
+.header h1:hover{
+    color: pink;
 }

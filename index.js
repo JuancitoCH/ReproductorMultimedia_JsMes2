@@ -1,4 +1,6 @@
+import important from './helpers/importantsFunctionalities.js'
 import home from './pages/home.js'
+import musicReproductor from './pages/music.js'
 import reproductor from './pages/reproductor.js'
 const app = document.getElementById('app')
 
@@ -10,7 +12,8 @@ const appReset = (app,callback,id='')=>{
 const routes = {
     '':()=>appReset(app,home),
     '404':()=>app.innerHTML='<h1>404<h1/>',
-    'reproductor':(id)=>appReset(app,reproductor,id)
+    'reproductor':(id)=>appReset(app,reproductor,id),
+    'music':(id)=>appReset(app,musicReproductor,id)
 }
 
 function router(e){
@@ -32,10 +35,17 @@ function resetHashUrl(string){
         path:array[1],
         id:array[2]
     }
+    if(array[1]=='music')return{
+        success:true,
+        path:array[1],
+        id:array[2]
+    }
     return{
 
     }
 }
+
+important()
 
 window.addEventListener('load', router);
 window.addEventListener('hashchange', router);

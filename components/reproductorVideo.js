@@ -1,4 +1,5 @@
 export default function reproductorVideo({ id, name, tumbnail, src, duration }) {
+    // The Main Component
     const video_container = document.createElement('section')
     const videoTag = document.createElement('video')
     const source = document.createElement('source')
@@ -24,6 +25,7 @@ function controls(video, video_container) {
     const fullScreenBtn = document.createElement('button')
     const backBtn = document.createElement('button')
     const forwBtn = document.createElement('button')
+    const volumeControl = document.createElement('input')
 
     playBtn.setAttribute('id', 'play')
     video_controls.setAttribute('class', 'video-controls')
@@ -36,6 +38,13 @@ function controls(video, video_container) {
     backBtn.setAttribute('id', 'backwardSeconds')
     forwBtn.setAttribute('id', 'forwardSeconds')
 
+    volumeControl.setAttribute('class', 'volume-video')
+    volumeControl.setAttribute('type', 'range')
+    volumeControl.setAttribute('min', '0')
+    volumeControl.setAttribute('max', '1')
+    volumeControl.setAttribute('step', '.05')
+
+
     playBtn.textContent = '>'
     fullScreenBtn.textContent = 'Full'
     forwBtn.textContent = '10 >>'
@@ -43,11 +52,13 @@ function controls(video, video_container) {
 
     video_controls.appendChild(playBtn)
     video_controls.appendChild(barraReproduccion)
+    video_controls.appendChild(volumeControl)
     video_controls.appendChild(fullScreenBtn)
 
     video_container.appendChild(forwBtn)
     video_container.appendChild(backBtn)
 
+    // add functionality to the elemnts
     videosFunctionality(video,
         video_container,
         playBtn,
@@ -55,7 +66,8 @@ function controls(video, video_container) {
         fullScreenBtn,
         forwBtn,
         backBtn,
-        video_controls
+        video_controls,
+        volumeControl
     )
     return video_controls
 }
@@ -68,7 +80,8 @@ function videosFunctionality(
     full,
     forwBtn,
     backBtn,
-    video_controls ) {
+    video_controls,
+    volumeControl ) {
     
     
     video.volume = 0.1
@@ -87,6 +100,7 @@ function videosFunctionality(
         }
     })
     video.addEventListener('loadeddata', (event) => {
+        volumeControl.value=video.volume
         duration = event.target.duration
         barra.style.backgroundSize = 0
     })
@@ -99,6 +113,10 @@ function videosFunctionality(
         video.currentTime = (duration / 100) * e.target.value
         barra.style.backgroundSize = (video.currentTime / duration) * 100 + '%'
     }
+    volumeControl.oninput=(e)=>{
+        video.volume=volumeControl.value
+    }
+
     full.onclick = () => {
         if (!fullscreenBool) video_container.requestFullscreen()
         if (fullscreenBool) document.exitFullscreen()

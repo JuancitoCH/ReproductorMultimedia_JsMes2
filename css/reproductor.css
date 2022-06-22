@@ -1,5 +1,6 @@
 #video{
     width: 100%;
+    margin: 20px;
 }
 #video::-webkit-media-controls{
     display: none;
@@ -16,7 +17,8 @@
     justify-content: center;
     gap: 20px;
     animation: controlAnimation 5s forwards ease-in;
-    padding-top:100% ;
+    padding-top:50% ;
+    margin-bottom:30px;
 }
 
 .video-controls:hover{
@@ -59,7 +61,7 @@
 
 #control{
     appearance:none ;
-    height: 5px;
+    height: 8px;
     margin-top: 2.5px;
     margin-bottom: 2.5px ;
     border-radius: 20px;
@@ -75,10 +77,11 @@
 
 #control:hover{
     appearance:none;
-    height: 6px;
+    height: 8px;
     margin-top:2px;
     margin-bottom:2px;
     background-image: linear-gradient(#0c8808, #0c8808);
+    cursor: pointer;
 }
 
 #control::-webkit-slider-thumb{
@@ -97,6 +100,37 @@
     background-color: #a0ff9c;
     box-shadow: 0 0 2px 0 rgb(78, 78, 78);
 
+}
+
+.volume-video{
+    appearance: none;
+    /* position: absolute; */
+    border-radius: 20px;
+    height: 8px;
+    margin-top: 2.5;
+    margin-bottom: 2.5;
+    width: 60px;
+    background:none;
+    transition: background .5s ease;
+    /* padding: 8px; */
+}
+.volume-video:hover{
+    width: 60px;
+    margin-left: 0;
+    margin-right: 0;
+    background-color: white;
+    cursor: pointer;
+
+}
+
+.volume-video::-webkit-slider-thumb{
+    appearance: none;
+    display: block;
+    height: 14px;
+    width: 14px;
+    border-radius: 20px;
+    box-shadow: 0 0 2px 0 rgb(78, 78, 78);
+    background-color: #0c8808;
 }
 
 @keyframes controlAnimation{
