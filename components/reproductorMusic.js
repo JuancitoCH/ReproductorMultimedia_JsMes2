@@ -4,6 +4,7 @@ export default function reproductorMusic({id,name,cover,src}){
     const audioRep = document.createElement('audio')
     
     audioRep.setAttribute('src',src)
+    audioRep.classList.add('audioMedia')
     
     containerMusic.classList.add('audioContainer-g')
 
@@ -21,11 +22,13 @@ function reproductorControls(audio){
     const soundRep = document.createElement('input')
     const playBtn = document.createElement('button')
     const loopBtn = document.createElement('button')
+    const prevBtn = document.createElement('button')
+    const nextBtn = document.createElement('button')
 
     timeRep.setAttribute('type','range')
     timeRep.setAttribute('max','100')
     timeRep.setAttribute('min','0')
-    timeRep.setAttribute('step','0.5')
+    timeRep.setAttribute('step','0.005')
 
     soundRep.setAttribute('type','range')
     soundRep.setAttribute('max','1')
@@ -33,6 +36,8 @@ function reproductorControls(audio){
     soundRep.setAttribute('step','0.05')
 
     playBtn.textContent='.'
+    prevBtn.textContent='.'
+    nextBtn.textContent='.'
 
     loopBtn.textContent='<>'
 
@@ -42,15 +47,22 @@ function reproductorControls(audio){
     soundRep.classList.add('music-sound')
     playBtn.classList.add('music-play-btn')
     loopBtn.classList.add('music-loop-btn')
+    prevBtn.classList.add('music-prev-btn')
+    nextBtn.classList.add('music-next-btn')
+    
 
     
 
+    container.appendChild(prevBtn)
     container.appendChild(playBtn)
-    container.appendChild(timeRep)
-    container.appendChild(soundRep)
+    container.appendChild(nextBtn)
     container.appendChild(loopBtn)
+    container.appendChild(soundRep)
+
     funtionalitiesRep(audio,timeRep,soundRep,playBtn,loopBtn)
+
     containerControlsFather.appendChild(container)
+    containerControlsFather.appendChild(timeRep)
 
     return containerControlsFather
 }
@@ -72,11 +84,13 @@ function funtionalitiesRep(audio,time,sound,playBtn,loopBtn){
 
     audio.addEventListener('loadeddata',(e)=>{
         audio.play()
-        audio.loop = true
+        audio.loop = false
         duration = audio.duration
         const volume = localStorage.getItem('audioVolume') 
         volume ? audio.volume=volume : audio.volume=.4
         sound.value = audio.volume
+        resetSoundIcon(audio)
+        sound.style.backgroundSize = sound.value*100+'%'
     })
 
     audio.addEventListener('timeupdate',(e)=>{
@@ -93,9 +107,19 @@ function funtionalitiesRep(audio,time,sound,playBtn,loopBtn){
     sound.addEventListener('input',(e)=>{
         audio.volume = sound.value
         localStorage.setItem('audioVolume',audio.volume)
+        resetSoundIcon(audio)
+        sound.style.backgroundSize = audio.volume*100+'%'
     })
     loopBtn.addEventListener('click',e=>{
-        audio.loop? audio.loop=false:audio.loop=true
+        if(audio.loop){
+            audio.loop=false
+            loopBtn.style.backgroundColor=''
+            loopBtn.style.color=''
+        }else{
+            loopBtn.style.backgroundColor='#7e0606'
+            loopBtn.style.color='#7e0606'
+            audio.loop=true
+        }
     })
     
 }
@@ -111,9 +135,29 @@ function portada(id,name,coverUrl){
     img.src=coverUrl
     title.textContent=name
 
+    portadaContainer.classList.add('container-music-portada')
+    portada.classList.add('portada-music')
+    img.classList.add('portada-music-img')
+    title.classList.add('portada-music-title')
+
     portada.appendChild(img)
     portada.appendChild(title)
 
     portadaContainer.appendChild(portada)
     return portadaContainer
+}
+
+function resetSoundIcon(audio){
+    if(audio.volume ==0){
+        const variableBack = getComputedStyle(document.documentElement).getPropertyValue('--backgrund-sound-none')
+        document.documentElement.style.setProperty('--backgrund-sound',variableBack)
+       
+    }else if(audio.volume>=0.5){
+        const variableBack = getComputedStyle(document.documentElement).getPropertyValue('--backgrund-sound-high')
+        document.documentElement.style.setProperty('--backgrund-sound',variableBack)
+    }
+    else{
+        const variableBack = getComputedStyle(document.documentElement).getPropertyValue('--backgrund-sound-low')
+        document.documentElement.style.setProperty('--backgrund-sound',variableBack)
+    }
 }
