@@ -1,0 +1,62 @@
+/* :root{
+    --text-white:rgb(235, 235, 235);
+    --back-black:rgb(58, 58, 58);
+    --back-black-hover:rgb(49, 49, 49);
+} */
+
+.audioContainer-g{
+    position: relative;
+    height: fit-content;
+}
+.music-control-container-father{
+    position: relative;
+    background-color: var(--back-black);
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+.music-control-container{
+
+}
+.music-reproductor{
+    appearance: none;
+    margin-left: 1rem;
+    margin-right: 2rem;
+    width:60rem;
+    background-color: rgb(77, 77, 77);
+    background-image: linear-gradient(#810606, #7e0606);
+    background-repeat: no-repeat;
+
+}
+.music-sound{
+    appearance: none;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    background-color: rgb(77, 77, 77);
+    background-image: linear-gradient(#810606, #7e0606);
+    background-repeat: no-repeat;
+}
+.music-play-btn{
+    background-color: transparent;
+    color: #7e0606;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+
+    background-color: #7e0606;
+    -webkit-mask-image: url('../static/svg/IcRoundPause.svg');
+    mask-image: url('../static/IcRoundPause.svg');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    mask-size: 2.8rem;
+    -webkit-mask-size: 2.8rem;
+}
+.music-play-btn:hover{
+    background-color: #cec3c3;
+    cursor: pointer;
+}
+.music-loop-btn{
+
+}
