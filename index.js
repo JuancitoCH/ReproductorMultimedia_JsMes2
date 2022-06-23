@@ -3,6 +3,9 @@ import home from './pages/home.js'
 import musicReproductor from './pages/music.js'
 import reproductor from './pages/reproductor.js'
 const app = document.getElementById('app')
+import busqueda from './components/busqueda.js'
+
+busqueda()
 
 const appReset = (app,callback,id='')=>{
     app.innerHTML=''

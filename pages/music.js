@@ -9,7 +9,7 @@ export default function musicReproductorPage(id){
             el.idArray=i
             return el.id==id
         })
-        console.log(music)
+        // console.log(music)
         const reproductorConstruct = reproductorMusic(music,data.musics.all.length)
         Rep.appendChild(reproductorConstruct)
     })

@@ -1,19 +1,21 @@
 :root{
     --text-white:rgb(235, 235, 235);
-    --back-black:rgb(58, 58, 58);
-    --back-black-hover:rgb(49, 49, 49);
+    --text-white-light:rgb(221, 221, 221);
+    --text-white-light-2:rgb(173, 173, 173);
+    --back-black:rgb(46, 46, 46);
+    --back-black-hover:rgb(43, 43, 43);
 }
 body{
-    background-color: var(--back-black-hover);
+    background-color: rgb(32, 32, 32);
 }
 .videos::before{
     content: 'Videos';
     position: absolute;
-    top: -1.5rem;
+    top: -1.8rem;
     font-size: 2rem;
     margin-left: 1rem;
     font-weight: 600;
-    color: var(--back-black);
+    color: var(--text-white-light);
 }
 .videos{
     position: relative;
@@ -29,12 +31,15 @@ body{
     text-align: center;
     border-radius: 3px;
     cursor: pointer;
+    opacity: .8;
 }
 .un-video:hover{
     background-color: rgb(49, 49, 49);
+    opacity: 1;
+    /* box-shadow: 5px 5px 10px rgba(95, 95, 95, 0.3); */
 }
 .un-video p{
-    color: var(--text-white);
+    color: var(--text-white-light);
 }
 .caratula{
     position: relative;
@@ -56,10 +61,10 @@ body{
     width: 100%;
     opacity: .9;
 }
-.caratula img:hover{
+/* .caratula img:hover{
     opacity: 1;
     cursor: pointer;
-}
+} */
 
 /* music */
 
@@ -70,6 +75,7 @@ body{
     font-size: 2rem;
     margin-left: 1rem;
     font-weight: 600;
+    color: var(--text-white-light);
 }
 
 .musics{
@@ -81,13 +87,19 @@ body{
 }
 
 .song-container{
+    text-align: center;
     background-color: var(--back-black);
     width: 14rem;
     padding-bottom: 3px;
     margin: 12px;
     border-radius: 3px;
-    color: var(--text-white);
+    color: var(--text-white-light);
     cursor: pointer;
+    opacity: .8;
+}
+.song-container:hover{
+    background-color: var(--back-black-hover);
+    opacity: 1;
 }
 .cover-container{
     position: relative;
@@ -104,7 +116,26 @@ body{
     font-size: 1.2rem;
 }
 
-
+@media (max-width:850px){
+    .videos{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .musics{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .un-video{
+        width: 80%;
+        height: 60%;
+        font-size: 1.9rem;
+    }
+    
+}
 
 
 /* music */

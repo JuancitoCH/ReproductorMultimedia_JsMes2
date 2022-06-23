@@ -1,3 +1,5 @@
+
+
 export default function reproductorVideo({ id, name, tumbnail, src, duration }) {
     // The Main Component
     const video_container = document.createElement('section')

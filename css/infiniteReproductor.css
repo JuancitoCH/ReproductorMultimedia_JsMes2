@@ -1,0 +1,17 @@
+.infinite-main-reproductor{
+    /* background-color: azure; */
+    height: 30rem;
+    position: absolute;
+    right: 0%;
+    /* top: 0%; */
+}
+
+@media (max-width:800px){
+    .infinite-main-reproductor{
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+}

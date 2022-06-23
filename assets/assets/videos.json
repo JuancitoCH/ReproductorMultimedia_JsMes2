@@ -6,35 +6,44 @@
                 "name": "Elden Ring Trailer",
                 "tumbnail": "https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/phvVT0qZfcRms5qDAk0SI3CM.png",
                 "src": "assets/assets/ELDENRINGTRaILERDELANZAMIENTOOFICIAL.mp4",
-                "duration": "2:35"
+                "duration": "2:35",
+                "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ut omnis quaerat voluptates incidunt! Qui recusandae, porro dolorem maxime accusantium labore sequi, a, voluptatum sunt aliquam quae? Molestias, ad odit sint velit recusandae debitis eaque ullam eos quibusdam qui, voluptatibus sit dolorum nesciunt harum consequatur, voluptatum atque aliquid impedit cupiditate?"
             },
             {
                 "id": 3,
                 "name": "Fortnite x AmongUs",
                 "tumbnail": "https://i.3djuegos.com/juegos/8298/fortnite/fotos/maestras/fortnite-5677509.jpg",
                 "src": "assets/assets/fortamongus.mp4",
-                "duration": "0:16"
+                "duration": "0:16",
+                "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ut omnis quaerat voluptates incidunt! Qui recusandae, porro dolorem maxime accusantium labore sequi, a, voluptatum sunt aliquam quae? Molestias, ad odit sint velit recusandae debitis eaque ullam eos quibusdam qui, voluptatibus sit dolorum nesciunt harum consequatur, voluptatum atque aliquid impedit cupiditate?"
+
             },
             {
                 "id": 4,
                 "name": "The Last of Us Part I  Announce Trailer  PS5",
                 "tumbnail": "https://i.ytimg.com/vi/aAzrlW7QhfI/maxresdefault.jpg",
                 "src": "assets/assets/The Last of Us Part I  Announce Trailer  PS5 Games_480p.mp4",
-                "duration": "1:30"
+                "duration": "1:30",
+                "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ut omnis quaerat voluptates incidunt! Qui recusandae, porro dolorem maxime accusantium labore sequi, a, voluptatum sunt aliquam quae? Molestias, ad odit sint velit recusandae debitis eaque ullam eos quibusdam qui, voluptatibus sit dolorum nesciunt harum consequatur, voluptatum atque aliquid impedit cupiditate?"
+                
             },
             {
                 "id": 5,
                 "name": "Fortnite Temporada 3 Trailer",
                 "tumbnail": "https://i.ytimg.com/vi/oM2B75Mm87o/maxresdefault.jpg",
                 "src": "assets/assets/Tráiler de juego del Capítulo 3  Temporada 3 de Fortnite_360p.mp4",
-                "duration": "1:18"
+                "duration": "1:18",
+                "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ut omnis quaerat voluptates incidunt! Qui recusandae, porro dolorem maxime accusantium labore sequi, a, voluptatum sunt aliquam quae? Molestias, ad odit sint velit recusandae debitis eaque ullam eos quibusdam qui, voluptatibus sit dolorum nesciunt harum consequatur, voluptatum atque aliquid impedit cupiditate?"
+                
             },
             {
                 "id": 6,
                 "name": "Wo Long Fallen Dynasty  Reveal Trailer  PS5  PS4",
                 "tumbnail": "https://i.ytimg.com/vi/I4uFoD0WyXw/maxresdefault.jpg",
                 "src": "assets/assets/Wo Long Fallen Dynasty  Reveal Trailer  PS5  PS4 Games_360p.mp4",
-                "duration": "1:21"
+                "duration": "1:21",
+                "description":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos ut omnis quaerat voluptates incidunt! Qui recusandae, porro dolorem maxime accusantium labore sequi, a, voluptatum sunt aliquam quae? Molestias, ad odit sint velit recusandae debitis eaque ullam eos quibusdam qui, voluptatibus sit dolorum nesciunt harum consequatur, voluptatum atque aliquid impedit cupiditate?"
+                
             }
         ]
     },
