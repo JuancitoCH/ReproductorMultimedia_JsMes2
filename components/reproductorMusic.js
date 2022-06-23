@@ -1,4 +1,6 @@
-export default function reproductorMusic({id,name,cover,src}){
+import redirectElementOnclick from "./redirect.js"
+
+export default function reproductorMusic({id,idArray,name,cover,src},length){
     const containerMusic = document.createElement('section')
 
     const audioRep = document.createElement('audio')
@@ -10,12 +12,12 @@ export default function reproductorMusic({id,name,cover,src}){
 
     containerMusic.appendChild(audioRep)
     containerMusic.appendChild(portada(id,name,cover))
-    containerMusic.appendChild(reproductorControls(audioRep))
+    containerMusic.appendChild(reproductorControls(audioRep,idArray,length,id))
     
     return containerMusic
 }
 
-function reproductorControls(audio){
+function reproductorControls(audio,idArray,length,id){
     const containerControlsFather = document.createElement('div')
     const container = document.createElement('div')
     const timeRep = document.createElement('input')
@@ -58,6 +60,10 @@ function reproductorControls(audio){
     container.appendChild(nextBtn)
     container.appendChild(loopBtn)
     container.appendChild(soundRep)
+
+    0 != idArray && redirectElementOnclick(prevBtn,'/music/'+(parseInt(id)-1))
+    
+    length-1 !=idArray && redirectElementOnclick(nextBtn,'/music/'+(parseInt(id)+1))
 
     funtionalitiesRep(audio,timeRep,soundRep,playBtn,loopBtn)
 
@@ -122,6 +128,7 @@ function funtionalitiesRep(audio,time,sound,playBtn,loopBtn){
         }
     })
     
+
 }
 
 function portada(id,name,coverUrl){

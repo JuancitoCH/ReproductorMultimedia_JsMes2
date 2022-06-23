@@ -5,9 +5,12 @@ export default function musicReproductorPage(id){
     fetch('./assets/assets/videos.json')
     .then(data => data.json())
     .then(data=>{
-        const [music] = data.musics.all.filter(el=>el.id==id)
+        const [music] = data.musics.all.filter((el,i)=>{
+            el.idArray=i
+            return el.id==id
+        })
         console.log(music)
-        const reproductorConstruct = reproductorMusic(music)
+        const reproductorConstruct = reproductorMusic(music,data.musics.all.length)
         Rep.appendChild(reproductorConstruct)
     })
     return Rep

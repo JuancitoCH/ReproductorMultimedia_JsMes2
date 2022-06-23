@@ -22,6 +22,7 @@ function controls(video, video_container) {
     const video_controls = document.createElement('div')
     const playBtn = document.createElement('button')
     const barraReproduccion = document.createElement('input')
+    const timeVideo = document.createElement('p')
     const fullScreenBtn = document.createElement('button')
     const backBtn = document.createElement('button')
     const forwBtn = document.createElement('button')
@@ -45,13 +46,19 @@ function controls(video, video_container) {
     volumeControl.setAttribute('step', '.05')
 
 
+    playBtn.classList.add('reproductor-play-btn')
+    fullScreenBtn.classList.add('reproductor-full-btn')
+    timeVideo.classList.add('reproductor-timer')
+
     playBtn.textContent = '>'
     fullScreenBtn.textContent = 'Full'
     forwBtn.textContent = '10 >>'
     backBtn.textContent = '<< 10'
+    timeVideo.textContent='0:00'
 
     video_controls.appendChild(playBtn)
     video_controls.appendChild(barraReproduccion)
+    video_controls.appendChild(timeVideo)
     video_controls.appendChild(volumeControl)
     video_controls.appendChild(fullScreenBtn)
 
@@ -67,7 +74,8 @@ function controls(video, video_container) {
         forwBtn,
         backBtn,
         video_controls,
-        volumeControl
+        volumeControl,
+        timeVideo
     )
     return video_controls
 }
@@ -81,7 +89,8 @@ function videosFunctionality(
     forwBtn,
     backBtn,
     video_controls,
-    volumeControl ) {
+    volumeControl ,
+    timer) {
     
     
     video.volume = 0.1
@@ -93,21 +102,31 @@ function videosFunctionality(
     play.addEventListener('click', (e) => {
         if (video.paused) {
             play.textContent = '||'
+            const variablePlay= getComputedStyle(document.documentElement).getPropertyValue('--pause-btn')
+            play.style.webkitMaskImage=variablePlay
             video.play()
         } else {
+            
+            const variablePlay = getComputedStyle(document.documentElement).getPropertyValue('--play-btn')
+            play.style.webkitMaskImage=variablePlay
             play.textContent = '>'
             video.pause()
         }
     })
     video.addEventListener('loadeddata', (event) => {
+        video.play()
         volumeControl.value=video.volume
         duration = event.target.duration
         barra.style.backgroundSize = 0
+        resetSoundIcon(volumeControl)
     })
     video.addEventListener('timeupdate', (event) => {
         const percentage = (event.target.currentTime / event.target.duration) * 100
         barra.value = percentage
         barra.style.backgroundSize = percentage + '%'
+        const minutos = Math.trunc(video.currentTime/60)
+        const segundos = Math.trunc(video.currentTime%60)
+        timer.textContent=minutos+':'+ (segundos<=9?'0':'')+segundos
     })
     barra.oninput = (e) => {
         video.currentTime = (duration / 100) * e.target.value
@@ -115,11 +134,21 @@ function videosFunctionality(
     }
     volumeControl.oninput=(e)=>{
         video.volume=volumeControl.value
+        resetSoundIcon(volumeControl)
     }
 
     full.onclick = () => {
-        if (!fullscreenBool) video_container.requestFullscreen()
-        if (fullscreenBool) document.exitFullscreen()
+        if (!fullscreenBool){
+            const isMobile = navigator.userAgentData.mobile;
+            
+            isMobile && screen.orientation.lock("landscape")
+            full.style.webkitMaskImage="url('./static/svg/GridiconsFullscreenExit.svg')"
+            video_container.requestFullscreen()
+        }
+        if (fullscreenBool) {
+            full.style.webkitMaskImage=""
+            document.exitFullscreen()
+        }
         fullscreenBool = !fullscreenBool
     }
 
@@ -156,4 +185,22 @@ function videosFunctionality(
             video_controls.style=''
         },100)
     })
+    video_controls.addEventListener('touchmove',(e)=>{
+        video_controls.style.animation='none'
+        setTimeout(()=>{
+            video_controls.style=''
+        },100)
+    })
+}
+
+function resetSoundIcon(audio){
+    // console.log(audio.value)
+    if(audio.value ==0){
+        document.documentElement.style.setProperty('--backgrund-sound--vid',"url('../static/svg/iconoir-sound-off.svg')")
+    }else if(audio.value>=0.5){
+        document.documentElement.style.setProperty('--backgrund-sound--vid',"url('../static/svg/iconoir-sound-high.svg')")
+    }
+    else{
+        document.documentElement.style.setProperty('--backgrund-sound--vid',"url('../static/svg/iconoir-sound-low.svg')")
+    }
 }

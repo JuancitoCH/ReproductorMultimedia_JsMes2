@@ -3,7 +3,9 @@
     --back-black:rgb(58, 58, 58);
     --back-black-hover:rgb(49, 49, 49);
 }
-
+body{
+    background-color: var(--back-black-hover);
+}
 .videos::before{
     content: 'Videos';
     position: absolute;

@@ -8,6 +8,18 @@
 .audioContainer-g {
     position: relative;
     height: fit-content;
+    animation: loadBegin .4s ease-in;
+}
+@keyframes loadBegin{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: .3;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 
 .audioMedia::-webkit-media-controls{

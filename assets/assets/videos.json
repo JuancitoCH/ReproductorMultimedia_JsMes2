@@ -1,0 +1,66 @@
+{
+    "videos": {
+        "all": [
+            {
+                "id": 2,
+                "name": "Elden Ring Trailer",
+                "tumbnail": "https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/phvVT0qZfcRms5qDAk0SI3CM.png",
+                "src": "assets/assets/ELDENRINGTRaILERDELANZAMIENTOOFICIAL.mp4",
+                "duration": "2:35"
+            },
+            {
+                "id": 3,
+                "name": "Fortnite x AmongUs",
+                "tumbnail": "https://i.3djuegos.com/juegos/8298/fortnite/fotos/maestras/fortnite-5677509.jpg",
+                "src": "assets/assets/fortamongus.mp4",
+                "duration": "0:16"
+            },
+            {
+                "id": 4,
+                "name": "The Last of Us Part I  Announce Trailer  PS5",
+                "tumbnail": "https://i.ytimg.com/vi/aAzrlW7QhfI/maxresdefault.jpg",
+                "src": "assets/assets/The Last of Us Part I  Announce Trailer  PS5 Games_480p.mp4",
+                "duration": "1:30"
+            },
+            {
+                "id": 5,
+                "name": "Fortnite Temporada 3 Trailer",
+                "tumbnail": "https://i.ytimg.com/vi/oM2B75Mm87o/maxresdefault.jpg",
+                "src": "assets/assets/Tráiler de juego del Capítulo 3  Temporada 3 de Fortnite_360p.mp4",
+                "duration": "1:18"
+            },
+            {
+                "id": 6,
+                "name": "Wo Long Fallen Dynasty  Reveal Trailer  PS5  PS4",
+                "tumbnail": "https://i.ytimg.com/vi/I4uFoD0WyXw/maxresdefault.jpg",
+                "src": "assets/assets/Wo Long Fallen Dynasty  Reveal Trailer  PS5  PS4 Games_360p.mp4",
+                "duration": "1:21"
+            }
+        ]
+    },
+    "musics": {
+        "all": [
+            {
+                "id": 1,
+                "name": "Aesthetic Music No Copy",
+                "cover": "https://i.pinimg.com/originals/ea/1f/64/ea1f64668a0af149a3277db9e9e54824.jpg",
+                "src": "assets/assets/aesthetic music no copyright .mp3",
+                "duration": "3:00"
+            },
+            {
+                "id": 2,
+                "name": "生きる意味が分からなくて自殺する人の曲",
+                "cover": "https://i1.sndcdn.com/artworks-Lv1PIMwj02VHlDwc-yO86yQ-t500x500.jpg",
+                "src": "assets/assets/生きる意味が分からなくて自殺する人の曲.mp3",
+                "duration": "3:00"
+            },
+            {
+                "id": 3,
+                "name": "Kiminotori",
+                "cover": "https://cdn.verasia.eu/17819-big_default_2x/kimi-no-na-ha-your-name-art-works.jpg",
+                "src": "assets/assets/kiminotori.mp3",
+                "duration": "3:00"
+            }
+        ]
+    }
+}
