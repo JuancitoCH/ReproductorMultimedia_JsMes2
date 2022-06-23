@@ -136,10 +136,10 @@
     width: 2rem;
     -webkit-mask-image: var(--full-btn);
     -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 2rem;
+    -webkit-mask-size: 1.7rem;
     mask-image: var(--full-btn);
     mask-repeat: no-repeat;
-    mask-size: 2rem;
+    mask-size: 1.7rem;
     cursor: pointer;
     position: relative;
     top: -.6rem;
@@ -199,11 +199,19 @@
     
 }
 
-@media only screen and (max-width: 500px){
+@media (max-width: 500px){
     #forwardSeconds{
         height: 50%;
     }
     #backwardSeconds{
         height: 50%;
     }
+    .video-controls{
+        gap: 10px;
+    }
+    .reproductor-full-btn{
+        left: -.2rem;
+    }
 }
+
+
