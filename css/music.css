@@ -273,7 +273,12 @@
         bottom: -2.75rem;
     }
     .portada-music{
-        height: 40%;
+        height: 38rem;
+        display: flex;
+        justify-content: center;
+    }
+    .portada-music-img{
+        height: 100%;
     }
 
 }
