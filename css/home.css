@@ -8,6 +8,24 @@
 body{
     background-color: rgb(32, 32, 32);
 }
+
+.welcome-container{
+ background-color: rgb(26, 26, 26);
+ color: var(--text-white-light);
+ text-align: center;
+}
+.welcome-container h1{
+    font-size: 2.5rem;
+}
+.welcome-container p{
+    font-size: 1.2rem;
+
+}
+.welcome-container img{
+    width: 30%;
+
+}
+
 .videos::before{
     content: 'Videos';
     position: absolute;
@@ -22,6 +40,8 @@ body{
     margin-top: 3rem;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
 }
 .un-video{
     background-color: rgb(58, 58, 58);
@@ -69,7 +89,7 @@ body{
 /* music */
 
 .musics::before{
-    content: 'Music';
+    content: 'Musics';
     position: absolute;
     top: -1.5rem;
     font-size: 2rem;
@@ -83,6 +103,8 @@ body{
     margin-top: 5rem;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
     
 }
 

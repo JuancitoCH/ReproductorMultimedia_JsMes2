@@ -24,6 +24,7 @@ function reproductorControls(audio,idArray,length,id){
     const soundRep = document.createElement('input')
     const playBtn = document.createElement('button')
     const loopBtn = document.createElement('button')
+    const allMusicBtnLoop = document.createElement('button')
     const prevBtn = document.createElement('button')
     const nextBtn = document.createElement('button')
 
@@ -42,6 +43,7 @@ function reproductorControls(audio,idArray,length,id){
     nextBtn.textContent='.'
 
     loopBtn.textContent='<>'
+    allMusicBtnLoop.textContent='<>'
 
     containerControlsFather.classList.add('music-control-container-father')
     container.classList.add('music-control-container')
@@ -49,6 +51,7 @@ function reproductorControls(audio,idArray,length,id){
     soundRep.classList.add('music-sound')
     playBtn.classList.add('music-play-btn')
     loopBtn.classList.add('music-loop-btn')
+    allMusicBtnLoop.classList.add('music-loop-btn-all')
     prevBtn.classList.add('music-prev-btn')
     nextBtn.classList.add('music-next-btn')
     
@@ -58,14 +61,16 @@ function reproductorControls(audio,idArray,length,id){
     container.appendChild(prevBtn)
     container.appendChild(playBtn)
     container.appendChild(nextBtn)
+    container.appendChild(allMusicBtnLoop)
     container.appendChild(loopBtn)
     container.appendChild(soundRep)
 
+    // 0 == idArray && redirectElementOnclick(prevBtn,'/music/'+length-1)
     0 != idArray && redirectElementOnclick(prevBtn,'/music/'+(parseInt(id)-1))
-    
     length-1 !=idArray && redirectElementOnclick(nextBtn,'/music/'+(parseInt(id)+1))
+    length-1 == idArray && redirectElementOnclick(nextBtn,'/music/1')
 
-    funtionalitiesRep(audio,timeRep,soundRep,playBtn,loopBtn)
+    funtionalitiesRep(audio,timeRep,soundRep,playBtn,loopBtn,allMusicBtnLoop,nextBtn)
 
     containerControlsFather.appendChild(container)
     containerControlsFather.appendChild(timeRep)
@@ -73,9 +78,9 @@ function reproductorControls(audio,idArray,length,id){
     return containerControlsFather
 }
 
-function funtionalitiesRep(audio,time,sound,playBtn,loopBtn){
+function funtionalitiesRep(audio,time,sound,playBtn,loopBtn,allMusicBtnLoop,nextBtn){
     let duration=0
-
+    let next= localStorage.getItem('next') || false
     playBtn.addEventListener('click',e=>{
         if(!audio.paused){
             audio.pause()
@@ -91,6 +96,10 @@ function funtionalitiesRep(audio,time,sound,playBtn,loopBtn){
     audio.addEventListener('loadeddata',(e)=>{
         audio.play()
         audio.loop = false
+        if(next){
+            allMusicBtnLoop.style.backgroundColor='#7e0606';
+            allMusicBtnLoop.style.color='#7e0606'
+        }
         duration = audio.duration
         const volume = localStorage.getItem('audioVolume') 
         volume ? audio.volume=volume : audio.volume=.4
@@ -103,6 +112,11 @@ function funtionalitiesRep(audio,time,sound,playBtn,loopBtn){
         const percentage = (e.target.currentTime / e.target.duration)*100
         time.value = percentage
         time.style.backgroundSize = percentage + '%'
+        if(e.target.duration == e.target.currentTime) {
+            if(next) return nextBtn.click()
+            playBtn.style.webkitMaskImage= "url('./static/svg/ic-round-play-arrow.svg')"
+            playBtn.style.webkitMaskSize='3rem'
+        }
     })
 
     time.addEventListener('input',(e)=>{
@@ -126,6 +140,17 @@ function funtionalitiesRep(audio,time,sound,playBtn,loopBtn){
             loopBtn.style.color='#7e0606'
             audio.loop=true
         }
+    })
+    allMusicBtnLoop.addEventListener('click',e=>{
+        next=!next
+        if(next){
+            allMusicBtnLoop.style.backgroundColor='#7e0606';
+            allMusicBtnLoop.style.color='#7e0606'
+        }else{
+            allMusicBtnLoop.style.backgroundColor='';
+            allMusicBtnLoop.style.color=''
+        }
+        localStorage.setItem('next',next)
     })
     
 

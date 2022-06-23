@@ -91,7 +91,7 @@
     height: 8px;
     margin-top: 2px;
     margin-bottom: 2px;
-    background-image: linear-gradient(#0c8808, #0c8808);
+    background-image: linear-gradient(#7e0606, #7e0606);
     cursor: pointer;
 }
 
@@ -111,7 +111,7 @@
     height: 12px;
     width: 12px;
     border-radius: 20px;
-    background-color: #a0ff9c;
+    background-color: #7e0606;;
     box-shadow: 0 0 2px 0 rgb(78, 78, 78);
 
 }
@@ -137,6 +137,10 @@
     position: relative;
     top: -.6rem;
 }
+.reproductor-play-btn:hover{
+    color: #7e0606;
+    background-color: #7e0606;
+}
 
 .reproductor-full-btn {
     height: 2rem;
@@ -152,7 +156,10 @@
     position: relative;
     top: -.6rem;
 }
-
+.reproductor-full-btn:hover {
+    color: #7e0606;
+    background-color: #7e0606;
+}
 
 .volume-video {
     appearance: none;
@@ -173,7 +180,8 @@
     /* width: 60px; */
     margin-left: 0;
     margin-right: 0;
-    background-color: rgb(224, 224, 224);
+    background-color: #7e0606;
+    /* background-color: rgb(224, 224, 224); */
     cursor: pointer;
 
 }

@@ -1,3 +1,4 @@
+import homeWelcome from "../components/homeWelcome.js"
 import { Miniatura } from "../components/miniatura.js"
 import Portada from "../components/portada.js"
 import mapeo from "../helpers/mapeo.js"
@@ -18,6 +19,7 @@ export default function RenderHome() {
     .then(data=>{
         mapeo(videos,data.videos.all,Miniatura)
         mapeo(musics,data.musics.all,Portada)
+        Home.appendChild(homeWelcome())
         Home.appendChild(videos)
         Home.appendChild(musics)
         
