@@ -7,6 +7,7 @@
 }
 body{
     background-color: rgb(32, 32, 32);
+    overflow-x: hidden;
 }
 
 .welcome-container{
@@ -42,6 +43,9 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    opacity: 0;
+
+    /* animation: videoMusicAppear 1s ease-in; */
 }
 .un-video{
     background-color: rgb(58, 58, 58);
@@ -105,6 +109,8 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
+    opacity: 0;
+    /* animation: videoMusicAppear 1s ease-in forwards; */
     
 }
 
@@ -159,5 +165,18 @@ body{
     
 }
 
-
+@keyframes videoMusicAppear{
+    0%{
+        opacity: 0;
+        right: -5rem;
+    }
+    50%{
+        opacity: .2;
+        right: -2rem;
+    }
+    100%{
+        opacity: 1;
+        right: 0;
+    }
+}
 /* music */

@@ -3,6 +3,16 @@ import { Miniatura } from "../components/miniatura.js"
 import Portada from "../components/portada.js"
 import mapeo from "../helpers/mapeo.js"
 
+const intersection = new IntersectionObserver((entryes)=>{
+    for(let entries of entryes){
+        if(entries.isIntersecting && entries.intersectionRatio>.5){
+            entries.target.style.animation=" videoMusicAppear 1s ease-in forwards"
+            intersection.unobserve(entries.target)
+        }
+    }
+    console.log(entryes)
+    
+},{ threshold:.5 })
 
 export default function RenderHome() {
     const Home = document.createElement('div')
@@ -22,82 +32,18 @@ export default function RenderHome() {
         Home.appendChild(homeWelcome())
         Home.appendChild(videos)
         Home.appendChild(musics)
-        
+        const extra1 = videos.cloneNode(true)
+        Home.appendChild(extra1)
+        const extra2 = videos.cloneNode(true)
+        Home.appendChild(extra2)
+        const extra3 = videos.cloneNode(true)
+        Home.appendChild(extra3)
+
+        Home.childNodes.forEach((e)=>intersection.observe(e))
     })
 
-
+   
 
     return Home
 }
 
-
-
-
-// const pelis = [
-//     {   
-//         id:23,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: 'https://1.bp.blogspot.com/-Sb-2Qt9js-M/YAu568byXPI/AAAAAAAAElc/KRxnGaBmUr0xaU4DQVF0Q9cMcCcoFDHQQCLcBGAsYHQ/s1920/B10K-TVLaint.jpg',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-//     {
-//         id:22,
-//         img: '',
-//         duration: '1:35',
-//         titulo: 'Meme Ben 10'
-//     },
-// ]
