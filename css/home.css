@@ -14,6 +14,7 @@ body{
  background-color: rgb(26, 26, 26);
  color: var(--text-white-light);
  text-align: center;
+ opacity: 0;
 }
 .welcome-container h1{
     font-size: 2.5rem;
